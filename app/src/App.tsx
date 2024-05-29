@@ -3,6 +3,7 @@ import PostPage from "./views/PostPage";
 import CreatePostPage from "./views/CreatePostPage";
 import { Routes, Route } from "react-router-dom";
 import UpdatePostPage from "./views/UpdatePostPage";
+import UserPage from "./views/UserPage";
 
 function App() {
     return (

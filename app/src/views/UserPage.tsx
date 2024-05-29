@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_USER } from "../queries & mutation/Queries";
-import { Alert, Card, Container, Row, Spinner, Button } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Alert, Card, Spinner } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 const UserPage = () => {
     const { id } = useParams();

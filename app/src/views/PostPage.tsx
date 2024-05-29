@@ -4,12 +4,6 @@ import { Alert, Card, Container, Row, Spinner, Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import UserPage from "./UserPage";
 
-// interface Post {
-//     id: number;
-//     title: string;
-//     body: string;
-// }
-
 const PostsPage = () => {
     const { id } = useParams();
     const { loading, error, data } = useQuery(GET_POST, {
@@ -44,6 +38,9 @@ const PostsPage = () => {
                         <Card.Text>{body}</Card.Text>
                         <Link to={"/"}>
                             <Button variant="primary">All page</Button>
+                        </Link>
+                        <Link to={`/post/${id}`}>
+                            <Button variant="primary">Update</Button>
                         </Link>
                     </Card.Body>
                 </Card>

@@ -1,5 +1,6 @@
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_POSTS } from "../queries & mutation/Queries";
+import { UPDATE_POST } from "../queries & mutation/Mutations";
 import { Alert, Card, Container, Row, Spinner, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -10,6 +11,15 @@ interface Post {
 
 const PostsPage = () => {
     const { loading, error, data } = useQuery(GET_POSTS);
+    const [deletePost] = useMutation(UPDATE_POST);
+
+    const handleClick = (id: number) => {
+        deletePost({
+            variables: {
+                id: id,
+            },
+        });
+    };
 
     if (loading)
         return (
@@ -29,6 +39,10 @@ const PostsPage = () => {
     return (
         <Container>
             <h1>Posts</h1>
+            <Link to={`/post`}>
+                <Button variant="primary">Create Post</Button>
+            </Link>
+
             <Row>
                 {data.posts.data.map(({ id, title }: Post) => (
                     <Card key={id}>
@@ -37,6 +51,9 @@ const PostsPage = () => {
                             <Link to={`/${id}`}>
                                 <Button variant="primary">More</Button>
                             </Link>
+                            <Button variant="primary" onClick={() => handleClick(id)}>
+                                Delete
+                            </Button>
                         </Card.Body>
                     </Card>
                 ))}

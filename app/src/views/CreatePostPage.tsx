@@ -62,10 +62,6 @@ const CreatePostPage = () => {
                     <p>ID: {data.createPost.id}</p>
                     <p>Title: {data.createPost.title}</p>
                     <p>Body: {data.createPost.body}</p>
-                    <Link to={`/post/${data.createPost.id}`}>
-                        <Button variant="primary">Update</Button>
-                    </Link>
-                    {/* <Button variant="primary" onClick={}></Button> */}
                 </div>
             )}
         </Container>
