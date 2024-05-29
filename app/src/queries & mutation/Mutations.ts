@@ -11,8 +11,8 @@ export const CREATE_POST = gql`
 `;
 
 export const UPDATE_POST = gql`
-    mutation UPDATE_POST($id: ID!, $body: String!) {
-        updatePost(input: { id: $id, body: $body }) {
+    mutation UpdatePost($id: ID!, $body: String!) {
+        updatePost(id: $id, input: { body: $body }) {
             id
             body
         }
@@ -20,7 +20,7 @@ export const UPDATE_POST = gql`
 `;
 
 export const DELETE_POST = gql`
-    mutation DELETE_POST($id: ID!) {
+    mutation DeletePost($id: ID!) {
         deletePost(id: $id)
     }
 `;

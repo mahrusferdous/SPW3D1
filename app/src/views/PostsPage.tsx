@@ -1,6 +1,6 @@
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_POSTS } from "../queries & mutation/Queries";
-import { UPDATE_POST } from "../queries & mutation/Mutations";
+import { DELETE_POST } from "../queries & mutation/Mutations";
 import { Alert, Card, Container, Row, Spinner, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -11,7 +11,7 @@ interface Post {
 
 const PostsPage = () => {
     const { loading, error, data } = useQuery(GET_POSTS);
-    const [deletePost] = useMutation(UPDATE_POST);
+    const [deletePost] = useMutation(DELETE_POST);
 
     const handleClick = (id: number) => {
         deletePost({
@@ -19,6 +19,7 @@ const PostsPage = () => {
                 id: id,
             },
         });
+        console.log("Simulate Delete");
     };
 
     if (loading)
